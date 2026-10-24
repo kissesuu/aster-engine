@@ -35,8 +35,8 @@ COMPUTATION (dapat accurate, huwag mag-estimate mula sa memory)
      * Fortune: day ASC + Moon − Sun; night ASC + Sun − Moon
      * Spirit: day ASC + Sun − Moon; night ASC + Moon − Sun
      * Victory: day ASC + Jupiter − Spirit; night ASC + Spirit − Jupiter
-     * Wealth (Substance): ASC + (traditional ruler ng 2nd house) − (2nd house
-       cusp), walang day/night reversal. Laging Whole Sign ang 2nd house dito
+     * Wealth (Substance): ASC + (2nd house cusp) − (traditional ruler ng 2nd
+       house), walang day/night reversal. Laging Whole Sign ang 2nd house dito
        (cusp = 0° ng 2nd sign mula sa ASC sign), kahit ano ang napiling house
        system.
      Traditional rulers lang (Mars sa Scorpio, Saturn sa Aquarius, Jupiter sa
@@ -73,5 +73,7 @@ COMPUTATION (dapat accurate, huwag mag-estimate mula sa memory)
 ```
 
 ## Open items
-- Verify the Lot of Wealth direction (ruler − cusp vs cusp − ruler) and the
-  Lot of Victory formula against Brennan, *Hellenistic Astrology* (2017).
+- Lot of Wealth uses cusp − ruler (measured from the 2nd house ruler to the
+  2nd house cusp), per Al-Biruni and Bonatti. Lot of Victory follows Paulus
+  (Spirit to Jupiter by day, reversed by night). Both still need a check
+  against Brennan, *Hellenistic Astrology* (2017), Lots chapter.
