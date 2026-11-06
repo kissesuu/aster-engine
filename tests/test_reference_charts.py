@@ -16,9 +16,14 @@ def _utc(chart):
 
 @pytest.mark.parametrize("chart", CHARTS, ids=chart_id)
 def test_birth_time_to_utc_matches_astro_com(chart):
-    # Astro.com shows UT as "H:MM", with "(D Month)" when the UT date differs.
+    # Astro.com shows UT as "H:MM" (or "H:MM:SS" for LMT births), with
+    # "(D Month)" when the UT date differs.
     utc = _utc(chart).utc
-    assert chart["ut"].split()[0] == f"{utc.hour}:{utc.minute:02d}"
+    shown = chart["ut"].split()[0]
+    expected = f"{utc.hour}:{utc.minute:02d}" + (
+        f":{utc.second:02d}" if shown.count(":") == 2 else ""
+    )
+    assert shown == expected
     if "(" in chart["ut"]:
         assert chart["ut"].split("(")[1].split()[0] == str(utc.day)
 

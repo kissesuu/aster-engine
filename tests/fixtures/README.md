@@ -9,6 +9,7 @@ retrieved 6 Nov 2026. Only the values are stored here, not the PDFs.
 | `manila_1990-03-15.json` | 15 Mar 1990, 11:00 p.m., Manila | Night chart |
 | `manila_1978-06-15.json` | 15 Jun 1978, 10:00 a.m., Manila | |
 | `manila_1943-05-10.json` | 10 May 1943, 8:00 a.m., Manila | JST (UTC+9); UT is the previous day |
+| `cebu_1890-06-01.json` | 1 Jun 1890, 12:00 p.m. LMT, Cebu | Before standard time; Cebu's own LMT (+8:15:36) |
 | `tromso_1990-12-01.json` | 1 Dec 1990, 12:00 p.m., Tromsø | Placidus impossible; Astro.com fell back to Porphyry |
 
 Tolerance (see CLAUDE.md): 1 arcminute for planets, 2 arcminutes for angles
