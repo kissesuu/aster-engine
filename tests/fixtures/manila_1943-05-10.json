@@ -1,0 +1,367 @@
+{
+  "source": "astro.com Natal Chart (Data Sheet), Web Style",
+  "retrieved": "6-Nov-2026",
+  "name": "DTest3",
+  "birth": {
+    "date": "10 May 1943",
+    "time": "8:00 a.m.",
+    "place": "Manila, PHIL",
+    "lon": 121.0,
+    "lat": 14.583333,
+    "coords_as_shown": "121e00, 14n35"
+  },
+  "ut": "23:00 (9 May)",
+  "julian_day_tt": 2430854.458636,
+  "delta_t_sec": 26.1,
+  "house_system": "Plac",
+  "bodies": {
+    "sun": {
+      "sign": "taurus",
+      "deg": 18,
+      "min": 25,
+      "sec": 54,
+      "longitude": 48.431667,
+      "house": 12,
+      "marker": null,
+      "speed": 0.966667,
+      "latitude": "0°0'0\" S",
+      "declination": "17°19'3\" N"
+    },
+    "moon": {
+      "sign": "cancer",
+      "deg": 21,
+      "min": 48,
+      "sec": 8,
+      "longitude": 111.802222,
+      "house": 2,
+      "marker": null,
+      "speed": 11.846667,
+      "latitude": "2°25'11\" S",
+      "declination": "19°17'22\" N"
+    },
+    "mercury": {
+      "sign": "gemini",
+      "deg": 5,
+      "min": 30,
+      "sec": 44,
+      "longitude": 65.512222,
+      "house": 12,
+      "marker": null,
+      "speed": 0.190833,
+      "latitude": "2°0'50\" N",
+      "declination": "23°12'33\" N"
+    },
+    "venus": {
+      "sign": "gemini",
+      "deg": 28,
+      "min": 13,
+      "sec": 59,
+      "longitude": 88.233056,
+      "house": 1,
+      "marker": null,
+      "speed": 1.149444,
+      "latitude": "2°10'40\" N",
+      "declination": "25°36'37\" N"
+    },
+    "mars": {
+      "sign": "pisces",
+      "deg": 16,
+      "min": 58,
+      "sec": 31,
+      "longitude": 346.975278,
+      "house": 10,
+      "marker": null,
+      "speed": 0.750833,
+      "latitude": "1°37'17\" S",
+      "declination": "6°38'15\" S"
+    },
+    "jupiter": {
+      "sign": "cancer",
+      "deg": 20,
+      "min": 10,
+      "sec": 0,
+      "longitude": 110.166667,
+      "house": 2,
+      "marker": null,
+      "speed": 0.154444,
+      "latitude": "0°24'55\" N",
+      "declination": "22°20'26\" N"
+    },
+    "saturn": {
+      "sign": "gemini",
+      "deg": 12,
+      "min": 20,
+      "sec": 26,
+      "longitude": 72.340556,
+      "house": 1,
+      "marker": null,
+      "speed": 0.122778,
+      "latitude": "1°23'55\" S",
+      "declination": "20°53'32\" N"
+    },
+    "uranus": {
+      "sign": "gemini",
+      "deg": 3,
+      "min": 40,
+      "sec": 32,
+      "longitude": 63.675556,
+      "house": 12,
+      "marker": null,
+      "speed": 0.056944,
+      "latitude": "0°7'8\" S",
+      "declination": "20°46'30\" N"
+    },
+    "neptune": {
+      "sign": "virgo",
+      "deg": 29,
+      "min": 32,
+      "sec": 30,
+      "longitude": 179.541667,
+      "house": 4,
+      "marker": "#",
+      "speed": -0.016111,
+      "latitude": "1°23'15\" N",
+      "declination": "1°27'19\" N"
+    },
+    "pluto": {
+      "sign": "leo",
+      "deg": 5,
+      "min": 1,
+      "sec": 41,
+      "longitude": 125.028056,
+      "house": 3,
+      "marker": null,
+      "speed": 0.009444,
+      "latitude": "5°7'2\" N",
+      "declination": "23°58'28\" N"
+    },
+    "mean_node": {
+      "sign": "leo",
+      "deg": 20,
+      "min": 41,
+      "sec": 2,
+      "longitude": 140.683889,
+      "house": 3,
+      "marker": null,
+      "speed": -0.053056,
+      "latitude": "0°0'0\" N",
+      "declination": "14°36'3\" N"
+    },
+    "true_node": {
+      "sign": "leo",
+      "deg": 20,
+      "min": 24,
+      "sec": 46,
+      "longitude": 140.412778,
+      "house": 3,
+      "marker": null,
+      "speed": -0.051111,
+      "latitude": "0°0'0\" N",
+      "declination": "14°41'13\" N"
+    },
+    "chiron": {
+      "sign": "leo",
+      "deg": 23,
+      "min": 12,
+      "sec": 49,
+      "longitude": 143.213611,
+      "house": 3,
+      "marker": null,
+      "speed": 0.030833,
+      "latitude": "6°1'56\" S",
+      "declination": "8°4'41\" N"
+    },
+    "lot_fortune": {
+      "sign": "leo",
+      "deg": 13,
+      "min": 53,
+      "sec": 51,
+      "longitude": 133.8975,
+      "house": 3,
+      "marker": null,
+      "speed": 0.0,
+      "latitude": "0°0'0\" N",
+      "declination": "16°39'36\" N"
+    },
+    "vertex": {
+      "sign": "libra",
+      "deg": 24,
+      "min": 33,
+      "sec": 43,
+      "longitude": 204.561944,
+      "house": 5,
+      "marker": null,
+      "declination": "9°31'10\" S"
+    },
+    "lilith": {
+      "sign": "cancer",
+      "deg": 28,
+      "min": 25,
+      "sec": 43,
+      "longitude": 118.428611,
+      "house": 2,
+      "marker": null,
+      "speed": 0.110833,
+      "latitude": "1°57'12\" S",
+      "declination": "18°34'1\" N"
+    },
+    "ceres": {
+      "sign": "taurus",
+      "deg": 13,
+      "min": 48,
+      "sec": 33,
+      "longitude": 43.809167,
+      "house": 12,
+      "marker": null,
+      "speed": 0.405833,
+      "latitude": "4°54'28\" S",
+      "declination": "11°17'56\" N"
+    },
+    "pallas": {
+      "sign": "aries",
+      "deg": 4,
+      "min": 43,
+      "sec": 30,
+      "longitude": 4.725,
+      "house": 11,
+      "marker": null,
+      "speed": 0.306389,
+      "latitude": "0°41'50\" N",
+      "declination": "2°31'6\" N"
+    },
+    "juno": {
+      "sign": "capricorn",
+      "deg": 28,
+      "min": 27,
+      "sec": 44,
+      "longitude": 298.462222,
+      "house": 8,
+      "marker": null,
+      "speed": 0.076389,
+      "latitude": "14°39'33\" N",
+      "declination": "6°5'49\" S"
+    },
+    "vesta": {
+      "sign": "taurus",
+      "deg": 0,
+      "min": 21,
+      "sec": 45,
+      "longitude": 30.3625,
+      "house": 11,
+      "marker": null,
+      "speed": 0.448333,
+      "latitude": "5°6'50\" S",
+      "declination": "6°48'26\" N"
+    },
+    "hygiea": {
+      "sign": "leo",
+      "deg": 7,
+      "min": 0,
+      "sec": 21,
+      "longitude": 127.005833,
+      "house": 3,
+      "marker": null,
+      "speed": 0.219722,
+      "latitude": "2°26'7\" S",
+      "declination": "16°10'4\" N"
+    },
+    "cupido": {
+      "sign": "virgo",
+      "deg": 13,
+      "min": 25,
+      "sec": 19,
+      "longitude": 163.421944,
+      "house": 4,
+      "marker": "#",
+      "speed": -0.006667,
+      "latitude": "0°37'3\" N",
+      "declination": "7°5'18\" N"
+    }
+  },
+  "cusps": {
+    "1": {
+      "sign": "gemini",
+      "deg": 10,
+      "min": 31,
+      "sec": 37,
+      "longitude": 70.526944
+    },
+    "2": {
+      "sign": "cancer",
+      "deg": 6,
+      "min": 34,
+      "sec": 43,
+      "longitude": 96.578611
+    },
+    "3": {
+      "sign": "leo",
+      "deg": 2,
+      "min": 22,
+      "sec": 58,
+      "longitude": 122.382778
+    },
+    "4": {
+      "sign": "virgo",
+      "deg": 0,
+      "min": 49,
+      "sec": 38,
+      "longitude": 150.827222
+    },
+    "5": {
+      "sign": "libra",
+      "deg": 3,
+      "min": 15,
+      "sec": 40,
+      "longitude": 183.261111
+    },
+    "6": {
+      "sign": "scorpio",
+      "deg": 7,
+      "min": 44,
+      "sec": 16,
+      "longitude": 217.737778
+    },
+    "7": {
+      "sign": "sagittarius",
+      "deg": 10,
+      "min": 31,
+      "sec": 37,
+      "longitude": 250.526944
+    },
+    "8": {
+      "sign": "capricorn",
+      "deg": 6,
+      "min": 34,
+      "sec": 43,
+      "longitude": 276.578611
+    },
+    "9": {
+      "sign": "aquarius",
+      "deg": 2,
+      "min": 22,
+      "sec": 58,
+      "longitude": 302.382778
+    },
+    "10": {
+      "sign": "pisces",
+      "deg": 0,
+      "min": 49,
+      "sec": 38,
+      "longitude": 330.827222
+    },
+    "11": {
+      "sign": "aries",
+      "deg": 3,
+      "min": 15,
+      "sec": 40,
+      "longitude": 3.261111
+    },
+    "12": {
+      "sign": "taurus",
+      "deg": 7,
+      "min": 44,
+      "sec": 16,
+      "longitude": 37.737778
+    }
+  }
+}
