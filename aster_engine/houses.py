@@ -23,6 +23,7 @@ class Angle:
     longitude: float
     position: SignPosition
     house: int
+    speed: float  # degrees per day, from the actual motion over 2 minutes
     evidence: tuple[str, ...]
 
 
@@ -44,6 +45,14 @@ class PointHouse:
     id: str
     house: int
     evidence: str  # e.g. "sun_house_10"
+
+
+_DT = 1 / 1440  # one minute, in days
+
+
+def _signed(x: float) -> float:
+    """Angle difference in (-180, 180]."""
+    return (x + 180) % 360 - 180
 
 
 def whole_sign_cusps(asc: float) -> tuple[float, ...]:
@@ -90,20 +99,25 @@ def compute_houses(jd_ut: float, lat: float, lon: float, system: HouseSystem) ->
         cusps[0], cusps[3], cusps[6], cusps[9] = (norm(x) for x in (asc, mc + 180, asc + 180, mc))
     cusps = tuple(cusps)
 
+    # Angles do not depend on the house system; Porphyry always computes.
+    _, before = swe.houses_ex(jd_ut - _DT, lat, lon, b"O")
+    _, after = swe.houses_ex(jd_ut + _DT, lat, lon, b"O")
+    speed = [_signed(after[i] - before[i]) / (2 * _DT) for i in (0, 1, 3)]
+
     angles = []
-    for id, angle_lon in (
-        ("asc", asc),
-        ("mc", mc),
-        ("dsc", asc + 180),
-        ("ic", mc + 180),
-        ("vertex", vertex),
+    for id, angle_lon, angle_speed in (
+        ("asc", asc, speed[0]),
+        ("mc", mc, speed[1]),
+        ("dsc", asc + 180, speed[0]),
+        ("ic", mc + 180, speed[1]),
+        ("vertex", vertex, speed[2]),
     ):
         pos = sign_position(angle_lon)
         house = house_of(angle_lon, cusps)
         evidence = [f"{id}_sign_{pos.sign}"]
         if id == "vertex":
             evidence.append(f"vertex_house_{house}")
-        angles.append(Angle(id, norm(angle_lon), pos, house, tuple(evidence)))
+        angles.append(Angle(id, norm(angle_lon), pos, house, angle_speed, tuple(evidence)))
 
     cusp_evidence = tuple(f"house_{i + 1}_sign_{SIGNS[int(c // 30)]}" for i, c in enumerate(cusps))
     return Houses(system, used, cusps, tuple(angles), tuple(flags), cusp_evidence)

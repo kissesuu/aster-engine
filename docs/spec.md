@@ -61,7 +61,20 @@ COMPUTATION (dapat accurate, huwag mag-estimate mula sa memory)
    - Planet to ASC/MC: majors 5°, sextile 3°, quincunx 1.5°
    - Points/asteroids/Lots/Nodes/Chiron/Lilith/Cupido/Vertex: max 3°
      (quincunx 1.5°)
-   - I-flag ang out-of-sign aspects.
+   - I-flag ang out-of-sign aspects: kapag hindi tugma ang layo ng mga sign sa
+     aspect (hal. conjunction ng 29° Aries at 1° Taurus).
+   Paglilinaw:
+   - Ang "max" ay hangganan. Kapag kasama ang point (Nodes, Chiron, asteroids,
+     Lilith, Cupido, Vertex, Lots), point orbs ang gamit. Kapag kasama ang ASC o
+     MC (walang point), ASC/MC orbs. Kung hindi, Sun/Moon orbs kapag kasama ang
+     Sun o Moon, at planet orbs kapag planeta sa planeta. Majors = conjunction,
+     opposition, square, trine.
+   - Mga pares: lahat ng pares ng planets, North Node, Chiron, asteroids, Lilith,
+     Cupido, Vertex, ASC, MC at Lots. South Node: conjunction lang (ang ibang
+     aspect nito ay kapareho ng sa North Node). Walang DSC/IC at walang ASC–MC.
+   - Applying kapag lumiliit ang orb, separating kapag lumalaki. Tunay na galaw
+     ang gamit para sa planets, points, ASC at MC. Nakapirmi ang Vertex at Lots
+     (gaya ng Astro.com).
 5. Technical analysis: sect light, benefic at malefic of sect, essential
    dignities, final dispositor(s), dispositor loops, mutual receptions, lunar
    phase, aspect patterns (Grand Trine, T-Square, Grand Cross, Kite, Yod,
