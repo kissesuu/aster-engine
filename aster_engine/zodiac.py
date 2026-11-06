@@ -38,3 +38,26 @@ def sign_position(longitude: float) -> SignPosition:
     sign_index = int(lon // 30)
     total = int((lon - sign_index * 30) * 3600)
     return SignPosition(SIGNS[sign_index], total // 3600, total // 60 % 60, total % 60)
+
+
+# Traditional rulers only: no outer planets.
+TRADITIONAL_RULERS = {
+    "aries": "mars",
+    "taurus": "venus",
+    "gemini": "mercury",
+    "cancer": "moon",
+    "leo": "sun",
+    "virgo": "mercury",
+    "libra": "venus",
+    "scorpio": "mars",
+    "sagittarius": "jupiter",
+    "capricorn": "saturn",
+    "aquarius": "saturn",
+    "pisces": "jupiter",
+}
+
+
+def format_longitude(longitude: float) -> str:
+    """Absolute longitude as D°MM'SS", truncated like sign_position."""
+    total = int(norm(longitude) * 3600)
+    return f"{total // 3600}°{total // 60 % 60:02d}'{total % 60:02d}\""
