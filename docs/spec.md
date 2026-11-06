@@ -79,6 +79,25 @@ COMPUTATION (dapat accurate, huwag mag-estimate mula sa memory)
    dignities, final dispositor(s), dispositor loops, mutual receptions, lunar
    phase, aspect patterns (Grand Trine, T-Square, Grand Cross, Kite, Yod,
    Stellium), at house ruler placements.
+   Paglilinaw:
+   - Sect light: Sun kapag day, Moon kapag night. Benefic/malefic of sect: day
+     Jupiter/Saturn, night Venus/Mars; ang dalawa pa ay contrary to sect.
+   - Essential dignities: domicile, exaltation, detriment, fall lang, para sa 7
+     tradisyonal na planeta (Sun hanggang Saturn). Walang scoring.
+   - Dispositors: lahat ng 10 planeta, gamit ang traditional rulers. Final
+     dispositor: planeta sa sariling domicile na dulo ng chain. Loop: chain na
+     umiikot sa dalawa o higit pang planeta.
+   - Mutual reception: 7 tradisyonal na planeta, by domicile, by exaltation, o
+     mixed (may label kung anong uri).
+   - Lunar phase: 8 phase, tig-45° ng Moon − Sun: new, crescent, first quarter,
+     gibbous, full, disseminating, last quarter, balsamic. Kasama ang degree at
+     kung waxing o waning.
+   - Aspect patterns: gamit ang aspects at orbs ng step 4, planets lang (Sun
+     hanggang Pluto). Stellium: 3+ planeta sa iisang sign, at hiwalay na 3+ sa
+     iisang house. Kite: Grand Trine + ikaapat na planeta na opposite sa isa at
+     sextile sa dalawa pa.
+   - House rulers: traditional ruler ng sign ng bawat cusp at ang house nito,
+     sa house system ng chart. Chart ruler: ruler ng sign ng ASC.
 6. Timing:
    a. Transit scan ng Jupiter, Saturn, Uranus, Neptune, Pluto, North Node at Chiron,
       mula 15 taon bago hanggang 15 taon pagkatapos ng current date.
