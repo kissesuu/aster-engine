@@ -45,6 +45,7 @@ STATION_WINDOWS = {
     "uranus": 7,
     "neptune": 7,
     "pluto": 7,
+    "chiron": 7,
 }
 
 

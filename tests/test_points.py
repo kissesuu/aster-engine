@@ -93,8 +93,8 @@ def test_hygiea_skipped_after_its_coverage():
     assert result.skipped[0].missing_file == "ast0/se00010s.se1"
 
 
-# Astro.com prints "(" after a planet turning direct and ")" after one turning
-# retrograde. It also marks bodies outside our station list (e.g. Chiron).
+# Astro.com prints "(" after a body turning direct and ")" after one turning
+# retrograde.
 ASTRO_STATION_MARKERS = {"(": "stationary_direct", ")": "stationary_retrograde"}
 
 
@@ -127,6 +127,13 @@ def test_station_outside_window_is_not_stationary():
     assert find_station(station.jd_ut + 2.1, "mercury") is None
 
 
-@pytest.mark.parametrize("body", ["sun", "moon", "mean_node", "lilith", "chiron"])
+@pytest.mark.parametrize("body", ["sun", "moon", "mean_node", "lilith", "ceres"])
 def test_bodies_without_stations(body):
     assert find_station(J2000, body) is None
+
+
+def test_chiron_station_manila_1990():
+    chart = next(c for c in CHARTS if c["birth"]["date"] == "15 March 1990")
+    chiron = {p.id: p for p in compute_points(_jd(chart)).points}["chiron"]
+    assert chiron.station.kind == "stationary_direct"
+    assert "chiron_stationary_direct" in chiron.evidence

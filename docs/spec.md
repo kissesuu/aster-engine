@@ -26,9 +26,9 @@ COMPUTATION (dapat accurate, huwag mag-estimate mula sa memory)
    nakadepende dito. Huwag mag-estimate.
 3. I-compute, tropical zodiac, gamit ang napiling house system:
    - Planets: Sun hanggang Pluto (+ retrograde status)
-     Stationary: Mercury hanggang Pluto lang. Hanapin ang eksaktong station (speed
+     Stationary: Mercury hanggang Pluto, at Chiron. Hanapin ang eksaktong station (speed
      = 0) na pinakamalapit sa birth. Stationary kapag nasa loob ng: Mercury ±2
-     araw, Venus at Mars ±3, Jupiter at Saturn ±5, Uranus, Neptune at Pluto ±7.
+     araw, Venus at Mars ±3, Jupiter at Saturn ±5, Uranus, Neptune, Pluto at Chiron ±7.
      Stationary direct kapag retrograde → direct, stationary retrograde kapag
      direct → retrograde. Ibigay ang petsa ng station at layo nito sa birth.
    - Mean North/South Node, Chiron
