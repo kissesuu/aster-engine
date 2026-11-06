@@ -4,8 +4,8 @@ import pytest
 import swisseph as swe
 from reference import PLANET_TOLERANCE, angle_diff, chart_id, load_charts, local_datetime
 
-from aster_engine.ephemeris import EphemerisFileMissing, ephe_path
-from aster_engine.points import POINTS, compute_points
+from aster_engine.ephemeris import EphemerisFileMissing, calc_body, ephe_path
+from aster_engine.points import POINTS, STATION_WINDOWS, compute_points, find_station
 from aster_engine.timeutil import local_to_utc
 
 CHARTS = load_charts()
@@ -91,3 +91,42 @@ def test_hygiea_skipped_after_its_coverage():
     result = compute_points(swe.julday(2150, 1, 1, 12.0))
     assert [s.id for s in result.skipped] == ["hygiea"]
     assert result.skipped[0].missing_file == "ast0/se00010s.se1"
+
+
+# Astro.com prints "(" after a planet turning direct and ")" after one turning
+# retrograde. It also marks bodies outside our station list (e.g. Chiron).
+ASTRO_STATION_MARKERS = {"(": "stationary_direct", ")": "stationary_retrograde"}
+
+
+def test_stations_match_astro_com_markers(chart_points):
+    chart, points = chart_points
+    expected = {
+        id: ASTRO_STATION_MARKERS[chart["bodies"][id]["marker"]]
+        for id in STATION_WINDOWS
+        if chart["bodies"][id]["marker"] in ASTRO_STATION_MARKERS
+    }
+    ours = {id: p.station.kind for id, p in points.items() if p.station}
+    assert ours == expected
+
+
+def test_station_is_exact_and_in_evidence():
+    chart = next(c for c in CHARTS if c["birth"]["date"] == "15 March 2000")
+    jd = _jd(chart)
+    mercury = {p.id: p for p in compute_points(jd).points}["mercury"]
+    assert mercury.station.kind == "stationary_direct"
+    assert mercury.station.days_from_birth == pytest.approx(mercury.station.jd_ut - jd)
+    assert calc_body(mercury.station.jd_ut, "mercury")[3] == pytest.approx(0, abs=1e-5)
+    assert "mercury_stationary_direct" in mercury.evidence
+
+
+def test_station_outside_window_is_not_stationary():
+    chart = next(c for c in CHARTS if c["birth"]["date"] == "15 March 2000")
+    station = find_station(_jd(chart), "mercury")
+    # Mercury's window is 2 days.
+    assert find_station(station.jd_ut + 1.9, "mercury") is not None
+    assert find_station(station.jd_ut + 2.1, "mercury") is None
+
+
+@pytest.mark.parametrize("body", ["sun", "moon", "mean_node", "lilith", "chiron"])
+def test_bodies_without_stations(body):
+    assert find_station(J2000, body) is None
