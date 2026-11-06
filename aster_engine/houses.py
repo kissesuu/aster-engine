@@ -14,6 +14,7 @@ from .zodiac import SIGNS, SignPosition, norm, sign_position
 class HouseSystem(StrEnum):
     PLACIDUS = "placidus"
     WHOLE_SIGN = "whole_sign"
+    PORPHYRY = "porphyry"  # only as the fallback when Placidus fails
 
 
 @dataclass(frozen=True)
@@ -65,8 +66,8 @@ def compute_houses(jd_ut: float, lat: float, lon: float, system: HouseSystem) ->
     """Cusps and angles for the birth time and place.
 
     When Placidus cannot be computed (high latitude), the result is flagged
-    and Whole Sign is used instead. ASC, MC and Vertex do not depend on the
-    house system.
+    and Porphyry, a quadrant system that always works, is used instead. ASC,
+    MC and Vertex do not depend on the house system.
     """
     flags = []
     used = system
@@ -75,14 +76,15 @@ def compute_houses(jd_ut: float, lat: float, lon: float, system: HouseSystem) ->
             cusps, ascmc = swe.houses_ex(jd_ut, lat, lon, b"P")
         except swe.Error:
             flags.append("placidus_unavailable_high_latitude")
-            used = HouseSystem.WHOLE_SIGN
-    if used is HouseSystem.WHOLE_SIGN:
+            used = HouseSystem.PORPHYRY
+    if used is not HouseSystem.PLACIDUS:
         # Porphyry is always computable and gives the same ASC, MC and Vertex.
-        _, ascmc = swe.houses_ex(jd_ut, lat, lon, b"O")
-        cusps = whole_sign_cusps(ascmc[0])
+        cusps, ascmc = swe.houses_ex(jd_ut, lat, lon, b"O")
     asc, mc, vertex = ascmc[0], ascmc[1], ascmc[3]
+    if used is HouseSystem.WHOLE_SIGN:
+        cusps = whole_sign_cusps(asc)
     cusps = [norm(c) for c in cusps]
-    if used is HouseSystem.PLACIDUS:
+    if used is not HouseSystem.WHOLE_SIGN:
         # Use the exact angle values for the angular cusps, so each angle
         # always falls in its own house despite float rounding.
         cusps[0], cusps[3], cusps[6], cusps[9] = (norm(x) for x in (asc, mc + 180, asc + 180, mc))

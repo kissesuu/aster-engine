@@ -12,7 +12,9 @@ from aster_engine.points import compute_points
 from aster_engine.timeutil import local_to_utc
 
 CHARTS = load_charts()
-PLACIDUS_CHARTS = [c for c in CHARTS if c["house_system"] == "Plac"]
+# Astro.com's house system label -> the system we expect to be used when
+# Placidus is requested (Astro.com also falls back to Porphyry).
+USED_SYSTEM = {"Plac": HouseSystem.PLACIDUS, "Porph": HouseSystem.PORPHYRY}
 TROMSO = next(c for c in CHARTS if c["birth"]["place"].startswith("Troms"))
 ASTRO_IDS = {"north_node": "mean_node"}
 
@@ -26,11 +28,11 @@ def _near(a, b):
     return abs(angle_diff(a, b)) <= ANGLE_TOLERANCE
 
 
-@pytest.mark.parametrize("chart", PLACIDUS_CHARTS, ids=chart_id)
-def test_placidus_matches_astro_com(chart):
+@pytest.mark.parametrize("chart", CHARTS, ids=chart_id)
+def test_placidus_request_matches_astro_com(chart):
     jd, lat, lon = _args(chart)
     h = compute_houses(jd, lat, lon, HouseSystem.PLACIDUS)
-    assert h.system is HouseSystem.PLACIDUS and h.flags == ()
+    assert h.system is USED_SYSTEM[chart["house_system"]]
     for i, cusp in enumerate(h.cusps):
         assert _near(cusp, chart["cusps"][str(i + 1)]["longitude"]), f"cusp {i + 1}"
     vertex = chart["bodies"]["vertex"]
@@ -46,7 +48,7 @@ def test_placidus_matches_astro_com(chart):
 @pytest.mark.parametrize("chart", CHARTS, ids=chart_id)
 def test_angles_match_astro_com_in_any_system(chart):
     jd, lat, lon = _args(chart)
-    for system in HouseSystem:
+    for system in (HouseSystem.PLACIDUS, HouseSystem.WHOLE_SIGN):
         h = compute_houses(jd, lat, lon, system)
         assert _near(h.angle("asc").longitude, chart["cusps"]["1"]["longitude"])
         assert _near(h.angle("mc").longitude, chart["cusps"]["10"]["longitude"])
@@ -54,13 +56,17 @@ def test_angles_match_astro_com_in_any_system(chart):
         assert _near(h.angle("ic").longitude, chart["cusps"]["4"]["longitude"])
 
 
-def test_tromso_placidus_falls_back_to_whole_sign():
+def test_tromso_placidus_falls_back_to_porphyry_with_flag():
     jd, lat, lon = _args(TROMSO)
     h = compute_houses(jd, lat, lon, HouseSystem.PLACIDUS)
     assert h.requested is HouseSystem.PLACIDUS
-    assert h.system is HouseSystem.WHOLE_SIGN
+    assert h.system is HouseSystem.PORPHYRY
     assert h.flags == ("placidus_unavailable_high_latitude",)
-    assert h.cusps == whole_sign_cusps(h.angle("asc").longitude)
+
+
+@pytest.mark.parametrize("chart", [c for c in CHARTS if c is not TROMSO], ids=chart_id)
+def test_no_flag_when_placidus_works(chart):
+    assert compute_houses(*_args(chart), HouseSystem.PLACIDUS).flags == ()
 
 
 def test_whole_sign_houses_count_signs_from_asc():

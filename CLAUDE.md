@@ -16,7 +16,7 @@ Spec: docs/spec.md (the COMPUTATION section is the source of truth).
   especially old Philippine dates. Before standard time (tzdata "LMT"), use the
   birthplace's own local mean time (longitude / 15 hours), not the zone's.
 - House system is a user input: Placidus or Whole Sign. When Placidus cannot
-  be computed (high latitude), flag it and fall back to Whole Sign.
+  be computed (high latitude), flag it and fall back to Porphyry.
 - Orbs, Lot formulas, sect rule, and transit filters must match docs/spec.md
   exactly. If the spec is ambiguous, ask instead of guessing.
 - Lots use traditional rulers only. Lot of Wealth always uses the Whole Sign
