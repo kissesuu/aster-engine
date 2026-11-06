@@ -14,8 +14,8 @@ Spec: docs/spec.md (the COMPUTATION section is the source of truth).
 - Ephemeris files live in ephe/ and are committed to the repo.
 - Birth time → UTC with zoneinfo + timezonefinder. Historical offsets matter,
   especially old Philippine dates.
-- House system is a user input: Placidus or Whole Sign. Flag when Placidus
-  cannot be computed (high latitude).
+- House system is a user input: Placidus or Whole Sign. When Placidus cannot
+  be computed (high latitude), flag it and fall back to Whole Sign.
 - Orbs, Lot formulas, sect rule, and transit filters must match docs/spec.md
   exactly. If the spec is ambiguous, ask instead of guessing.
 - Lots use traditional rulers only. Lot of Wealth always uses the Whole Sign

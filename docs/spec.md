@@ -9,7 +9,8 @@ BIRTH DATA
 - Date:
 - Time:
 - Place: (gamitin ang local timezone ng lugar at petsa para i-convert sa UT)
-- House system: Placidus o Whole Sign (pumili ng isa)
+- House system: Placidus o Whole Sign (pumili ng isa). Kapag hindi ma-compute
+  ang Placidus (high latitude), i-flag at awtomatikong gamitin ang Whole Sign.
 - Current date (para sa timing):
 
 COMPUTATION (dapat accurate, huwag mag-estimate mula sa memory)
