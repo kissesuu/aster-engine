@@ -29,3 +29,9 @@ and house cusps.
 - `cusps."1"` to `cusps."12"`: house cusps in the chart's `house_system`
   (cusp 1 = ASC, 4 = IC, 7 = DSC, 10 = MC).
 - `julian_day_tt` and `delta_t_sec` are as printed by Astro.com.
+- `aspects`: Astro.com's aspect grid, one entry per aspect: the two bodies,
+  the aspect, the orb as shown (whole degrees), and whether it is applying.
+  Astro.com uses its own, wider orbs, so tests only compare the aspects that
+  fall within the spec's orbs. Aspects with Astro.com's True Node are left
+  out (the engine uses the mean node), as are grid cells that could not be
+  matched to a single pair of bodies.

@@ -363,5 +363,511 @@
       "sec": 52,
       "longitude": 218.781111
     }
-  }
+  },
+  "aspects": [
+    {
+      "a": "moon",
+      "b": "sun",
+      "aspect": "sesquiquadrate",
+      "orb_shown": 1,
+      "applying": false
+    },
+    {
+      "a": "mercury",
+      "b": "sun",
+      "aspect": "conjunction",
+      "orb_shown": 3,
+      "applying": true
+    },
+    {
+      "a": "venus",
+      "b": "sun",
+      "aspect": "semisquare",
+      "orb_shown": 0,
+      "applying": false
+    },
+    {
+      "a": "venus",
+      "b": "moon",
+      "aspect": "square",
+      "orb_shown": 1,
+      "applying": false
+    },
+    {
+      "a": "venus",
+      "b": "mercury",
+      "aspect": "semisquare",
+      "orb_shown": 2,
+      "applying": true
+    },
+    {
+      "a": "mars",
+      "b": "moon",
+      "aspect": "square",
+      "orb_shown": 8,
+      "applying": false
+    },
+    {
+      "a": "mars",
+      "b": "venus",
+      "aspect": "conjunction",
+      "orb_shown": 6,
+      "applying": false
+    },
+    {
+      "a": "jupiter",
+      "b": "sun",
+      "aspect": "square",
+      "orb_shown": 6,
+      "applying": true
+    },
+    {
+      "a": "jupiter",
+      "b": "moon",
+      "aspect": "trine",
+      "orb_shown": 9,
+      "applying": false
+    },
+    {
+      "a": "jupiter",
+      "b": "mercury",
+      "aspect": "square",
+      "orb_shown": 9,
+      "applying": true
+    },
+    {
+      "a": "jupiter",
+      "b": "venus",
+      "aspect": "biquintile",
+      "orb_shown": 1,
+      "applying": false
+    },
+    {
+      "a": "jupiter",
+      "b": "mars",
+      "aspect": "quincunx",
+      "orb_shown": 1,
+      "applying": false
+    },
+    {
+      "a": "saturn",
+      "b": "moon",
+      "aspect": "quintile",
+      "orb_shown": 0,
+      "applying": true
+    },
+    {
+      "a": "saturn",
+      "b": "mars",
+      "aspect": "conjunction",
+      "orb_shown": 9,
+      "applying": false
+    },
+    {
+      "a": "uranus",
+      "b": "moon",
+      "aspect": "sextile",
+      "orb_shown": 2,
+      "applying": false
+    },
+    {
+      "a": "uranus",
+      "b": "mercury",
+      "aspect": "quintile",
+      "orb_shown": 0,
+      "applying": false
+    },
+    {
+      "a": "uranus",
+      "b": "venus",
+      "aspect": "semisextile",
+      "orb_shown": 0,
+      "applying": false
+    },
+    {
+      "a": "uranus",
+      "b": "jupiter",
+      "aspect": "opposition",
+      "orb_shown": 7,
+      "applying": true
+    },
+    {
+      "a": "neptune",
+      "b": "sun",
+      "aspect": "quintile",
+      "orb_shown": 1,
+      "applying": true
+    },
+    {
+      "a": "neptune",
+      "b": "moon",
+      "aspect": "sextile",
+      "orb_shown": 3,
+      "applying": true
+    },
+    {
+      "a": "neptune",
+      "b": "saturn",
+      "aspect": "conjunction",
+      "orb_shown": 9,
+      "applying": false
+    },
+    {
+      "a": "neptune",
+      "b": "uranus",
+      "aspect": "conjunction",
+      "orb_shown": 5,
+      "applying": true
+    },
+    {
+      "a": "pluto",
+      "b": "sun",
+      "aspect": "trine",
+      "orb_shown": 7,
+      "applying": false
+    },
+    {
+      "a": "pluto",
+      "b": "moon",
+      "aspect": "conjunction",
+      "orb_shown": 6,
+      "applying": true
+    },
+    {
+      "a": "pluto",
+      "b": "mercury",
+      "aspect": "trine",
+      "orb_shown": 3,
+      "applying": false
+    },
+    {
+      "a": "pluto",
+      "b": "venus",
+      "aspect": "square",
+      "orb_shown": 8,
+      "applying": true
+    },
+    {
+      "a": "pluto",
+      "b": "jupiter",
+      "aspect": "sesquiquadrate",
+      "orb_shown": 1,
+      "applying": true
+    },
+    {
+      "a": "pluto",
+      "b": "saturn",
+      "aspect": "sextile",
+      "orb_shown": 5,
+      "applying": false
+    },
+    {
+      "a": "pluto",
+      "b": "neptune",
+      "aspect": "sextile",
+      "orb_shown": 3,
+      "applying": true
+    },
+    {
+      "a": "chiron",
+      "b": "moon",
+      "aspect": "trine",
+      "orb_shown": 0,
+      "applying": false
+    },
+    {
+      "a": "chiron",
+      "b": "venus",
+      "aspect": "quincunx",
+      "orb_shown": 1,
+      "applying": true
+    },
+    {
+      "a": "chiron",
+      "b": "jupiter",
+      "aspect": "conjunction",
+      "orb_shown": 9,
+      "applying": true
+    },
+    {
+      "a": "chiron",
+      "b": "uranus",
+      "aspect": "opposition",
+      "orb_shown": 1,
+      "applying": true
+    },
+    {
+      "a": "chiron",
+      "b": "neptune",
+      "aspect": "opposition",
+      "orb_shown": 3,
+      "applying": false
+    },
+    {
+      "a": "chiron",
+      "b": "pluto",
+      "aspect": "trine",
+      "orb_shown": 7,
+      "applying": true
+    },
+    {
+      "a": "lot_fortune",
+      "b": "jupiter",
+      "aspect": "quintile",
+      "orb_shown": 0,
+      "applying": false
+    },
+    {
+      "a": "lot_fortune",
+      "b": "pluto",
+      "aspect": "quincunx",
+      "orb_shown": 1,
+      "applying": false
+    },
+    {
+      "a": "vertex",
+      "b": "mercury",
+      "aspect": "quincunx",
+      "orb_shown": 0,
+      "applying": true
+    },
+    {
+      "a": "vertex",
+      "b": "pluto",
+      "aspect": "square",
+      "orb_shown": 4,
+      "applying": false
+    },
+    {
+      "a": "lilith",
+      "b": "neptune",
+      "aspect": "sextile",
+      "orb_shown": 0,
+      "applying": false
+    },
+    {
+      "a": "lilith",
+      "b": "pluto",
+      "aspect": "conjunction",
+      "orb_shown": 2,
+      "applying": true
+    },
+    {
+      "a": "lilith",
+      "b": "chiron",
+      "aspect": "trine",
+      "orb_shown": 4,
+      "applying": false
+    },
+    {
+      "a": "ceres",
+      "b": "sun",
+      "aspect": "square",
+      "orb_shown": 0,
+      "applying": true
+    },
+    {
+      "a": "ceres",
+      "b": "moon",
+      "aspect": "sesquiquadrate",
+      "orb_shown": 0,
+      "applying": false
+    },
+    {
+      "a": "ceres",
+      "b": "mercury",
+      "aspect": "square",
+      "orb_shown": 4,
+      "applying": true
+    },
+    {
+      "a": "pallas",
+      "b": "saturn",
+      "aspect": "square",
+      "orb_shown": 4,
+      "applying": false
+    },
+    {
+      "a": "juno",
+      "b": "sun",
+      "aspect": "trine",
+      "orb_shown": 0,
+      "applying": true
+    },
+    {
+      "a": "juno",
+      "b": "mercury",
+      "aspect": "trine",
+      "orb_shown": 3,
+      "applying": true
+    },
+    {
+      "a": "juno",
+      "b": "saturn",
+      "aspect": "sextile",
+      "orb_shown": 1,
+      "applying": true
+    },
+    {
+      "a": "juno",
+      "b": "uranus",
+      "aspect": "semisquare",
+      "orb_shown": 0,
+      "applying": true
+    },
+    {
+      "a": "juno",
+      "b": "chiron",
+      "aspect": "sesquiquadrate",
+      "orb_shown": 0,
+      "applying": false
+    },
+    {
+      "a": "vesta",
+      "b": "venus",
+      "aspect": "semisquare",
+      "orb_shown": 1,
+      "applying": false
+    },
+    {
+      "a": "vesta",
+      "b": "saturn",
+      "aspect": "sextile",
+      "orb_shown": 0,
+      "applying": true
+    },
+    {
+      "a": "hygiea",
+      "b": "sun",
+      "aspect": "semisextile",
+      "orb_shown": 0,
+      "applying": false
+    },
+    {
+      "a": "hygiea",
+      "b": "uranus",
+      "aspect": "semisquare",
+      "orb_shown": 0,
+      "applying": false
+    },
+    {
+      "a": "hygiea",
+      "b": "chiron",
+      "aspect": "sesquiquadrate",
+      "orb_shown": 0,
+      "applying": true
+    },
+    {
+      "a": "cupido",
+      "b": "sun",
+      "aspect": "trine",
+      "orb_shown": 4,
+      "applying": false
+    },
+    {
+      "a": "cupido",
+      "b": "mercury",
+      "aspect": "trine",
+      "orb_shown": 0,
+      "applying": false
+    },
+    {
+      "a": "cupido",
+      "b": "mars",
+      "aspect": "quintile",
+      "orb_shown": 0,
+      "applying": false
+    },
+    {
+      "a": "cupido",
+      "b": "saturn",
+      "aspect": "sextile",
+      "orb_shown": 2,
+      "applying": false
+    },
+    {
+      "a": "cupido",
+      "b": "pluto",
+      "aspect": "conjunction",
+      "orb_shown": 3,
+      "applying": false
+    },
+    {
+      "a": "asc",
+      "b": "venus",
+      "aspect": "sextile",
+      "orb_shown": 4,
+      "applying": true
+    },
+    {
+      "a": "asc",
+      "b": "mars",
+      "aspect": "sextile",
+      "orb_shown": 2,
+      "applying": false
+    },
+    {
+      "a": "asc",
+      "b": "chiron",
+      "aspect": "biquintile",
+      "orb_shown": 0,
+      "applying": false
+    },
+    {
+      "a": "asc",
+      "b": "lot_fortune",
+      "aspect": "sesquiquadrate",
+      "orb_shown": 1,
+      "applying": false
+    },
+    {
+      "a": "mc",
+      "b": "venus",
+      "aspect": "quincunx",
+      "orb_shown": 2,
+      "applying": true
+    },
+    {
+      "a": "mc",
+      "b": "mars",
+      "aspect": "biquintile",
+      "orb_shown": 1,
+      "applying": true
+    },
+    {
+      "a": "mc",
+      "b": "jupiter",
+      "aspect": "sextile",
+      "orb_shown": 5,
+      "applying": false
+    },
+    {
+      "a": "mc",
+      "b": "saturn",
+      "aspect": "sesquiquadrate",
+      "orb_shown": 1,
+      "applying": true
+    },
+    {
+      "a": "mc",
+      "b": "uranus",
+      "aspect": "trine",
+      "orb_shown": 1,
+      "applying": true
+    },
+    {
+      "a": "mc",
+      "b": "neptune",
+      "aspect": "trine",
+      "orb_shown": 7,
+      "applying": true
+    },
+    {
+      "a": "mc",
+      "b": "ceres",
+      "aspect": "quintile",
+      "orb_shown": 0,
+      "applying": true
+    }
+  ]
 }
