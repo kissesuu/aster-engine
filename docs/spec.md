@@ -113,6 +113,9 @@ COMPUTATION (dapat accurate, huwag mag-estimate mula sa memory)
       at hanggang 20 na pinakamahalagang upcoming.
    g. Annual profections: whole sign, edad 0 = 1st house. Ibigay ang activated
       sign at Lord of the Year para sa kasalukuyang taon at sa susunod na 2 taon.
+      Nagsisimula ang bawat profection year sa birthday (local na petsa ng
+      kapanganakan); ang 29 Feb ay 1 Mar sa mga taong hindi leap year. Traditional
+      ruler ang Lord of the Year.
 ```
 
 ## Open items
