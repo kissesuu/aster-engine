@@ -35,10 +35,13 @@ COMPUTATION (dapat accurate, huwag mag-estimate mula sa memory)
    - Ceres, Pallas, Juno, Vesta, Hygiea
    - Lilith (mean Black Moon), Cupido (Uranian, mula sa seorbel.txt)
    - ASC, MC, Vertex
-   - Sect: day chart kapag nasa itaas ng horizon ang Sun, ibig sabihin nasa
-     houses 7-12 (norm(Sun − ASC) > 180°). Kung hindi, night chart. I-flag kapag
-     nasa loob ng 1° ng ASC o DSC ang Sun, dahil unstable ang sect at pwedeng
-     magbago kapag mali ng ilang minuto ang birth time.
+   - Sect: day chart kapag nasa itaas ng horizon ang Sun (tunay na altitude > 0°,
+     walang refraction). Kung hindi, night chart. Sa karaniwang latitude, pareho
+     ito ng norm(Sun − ASC) > 180° (houses 7-12). I-flag kapag nasa loob ng 1° ng
+     ASC o DSC ang Sun, dahil unstable ang sect at pwedeng magbago kapag mali ng
+     ilang minuto ang birth time. I-flag din kapag hindi magkatugma ang altitude
+     at ang norm(Sun − ASC) formula (nangyayari sa polar latitudes, kung saan
+     nagkakapalit ang ASC at DSC).
    - Lots (iisang sect ang gamit ng lahat; norm = x mod 360):
      * Fortune: day ASC + Moon − Sun; night ASC + Sun − Moon
      * Spirit: day ASC + Sun − Moon; night ASC + Moon − Sun
