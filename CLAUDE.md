@@ -13,7 +13,8 @@ Spec: docs/spec.md (the COMPUTATION section is the source of truth).
   that names the file. Never fall back to approximations.
 - Ephemeris files live in ephe/ and are committed to the repo.
 - Birth time → UTC with zoneinfo + timezonefinder. Historical offsets matter,
-  especially old Philippine dates.
+  especially old Philippine dates. Before standard time (tzdata "LMT"), use the
+  birthplace's own local mean time (longitude / 15 hours), not the zone's.
 - House system is a user input: Placidus or Whole Sign. When Placidus cannot
   be computed (high latitude), flag it and fall back to Whole Sign.
 - Orbs, Lot formulas, sect rule, and transit filters must match docs/spec.md

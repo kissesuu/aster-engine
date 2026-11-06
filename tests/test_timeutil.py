@@ -1,6 +1,6 @@
 """Expected offsets come from the IANA tz database (pinned tzdata package)."""
 
-from datetime import datetime, timedelta
+from datetime import UTC, datetime, timedelta
 
 import pytest
 
@@ -31,16 +31,30 @@ def test_manila_historical_offsets(local, expected_utc, offset_h, abbr):
     assert r.flags == ()
 
 
-def test_manila_before_1899_is_local_mean_time():
-    r = utc_of("1890-06-01T12:00", *MANILA)
-    assert r.utc_offset == timedelta(hours=8, minutes=3, seconds=52)
+def test_before_1899_uses_the_birthplace_local_mean_time():
+    # 4 minutes of time per degree of longitude east of Greenwich.
+    r = utc_of("1890-06-01T12:00", 14.5833, 121.0)
+    assert r.utc_offset == timedelta(hours=8, minutes=4)
+    assert r.utc == datetime(1890, 6, 1, 3, 56, tzinfo=UTC)
+    assert r.tz_abbreviation == "LMT"
     assert "local_mean_time" in r.flags
 
 
-def test_manila_before_1845_was_on_the_american_side_of_the_date_line():
-    r = utc_of("1840-06-01T12:00", *MANILA)
-    assert r.utc_offset == -timedelta(hours=15, minutes=56, seconds=8)
+def test_cebu_lmt_is_not_manila_lmt():
+    # tzdata alone would give Manila's +8:03:52 for all of the Philippines.
+    r = utc_of("1890-06-01T12:00", 10.3, 123.9)
+    assert r.utc_offset == timedelta(hours=8, minutes=15, seconds=36)
+    assert r.timezone == "Asia/Manila"
+
+
+def test_before_1845_keeps_the_american_side_of_the_date_line():
+    r = utc_of("1840-06-01T12:00", 14.5833, 121.0)
+    assert r.utc_offset == timedelta(hours=8, minutes=4) - timedelta(days=1)
     assert r.utc.date().isoformat() == "1840-06-02"
+
+
+def test_standard_time_dates_are_unaffected_by_lmt_rule():
+    assert utc_of("1900-06-01T12:00", 10.3, 123.9).utc_offset == timedelta(hours=8)
 
 
 def test_julian_day_j2000():

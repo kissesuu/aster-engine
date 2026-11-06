@@ -59,12 +59,27 @@ def julian_day_ut(utc: datetime) -> float:
     return jd_ut
 
 
+def birthplace_lmt_offset(lon: float, zone_lmt: timedelta) -> timedelta:
+    """Local mean time offset of the birthplace itself (4 minutes per degree).
+
+    tzdata gives one LMT per zone, taken at the zone's reference city (e.g.
+    Manila for all of the Philippines). Before standard time, clocks followed
+    the local meridian, so the birthplace's own longitude is used instead. The
+    zone's whole-day shift is kept: Philippine dates before 1845 followed the
+    American side of the date line.
+    """
+    mean = timedelta(hours=lon / 15)
+    days = round((zone_lmt - mean) / timedelta(days=1))
+    return mean + timedelta(days=days)
+
+
 def local_to_utc(local: datetime, lat: float, lon: float, fold: int = 0) -> UtcConversion:
     """Convert a naive local birth time at (lat, lon) to UTC.
 
     `fold` picks the occurrence of an ambiguous local time (0 = first, 1 = second),
     following PEP 495. Ambiguous and nonexistent local times are flagged, never
-    silently resolved.
+    silently resolved. Before standard time (tzdata "LMT"), the birthplace's own
+    local mean time is used; see `birthplace_lmt_offset`.
     """
     if local.tzinfo is not None:
         raise ValueError("local must be a naive datetime (local clock time of the birth place)")
@@ -78,15 +93,17 @@ def local_to_utc(local: datetime, lat: float, lon: float, fold: int = 0) -> UtcC
         roundtrip = aware.astimezone(UTC).astimezone(zone).replace(tzinfo=None)
         flags.append("nonexistent_local_time" if roundtrip != local else "ambiguous_local_time")
     abbr = aware.tzname() or ""
+    offset = aware.utcoffset()
     if abbr == "LMT":
         flags.append("local_mean_time")
+        offset = birthplace_lmt_offset(lon, offset)
 
-    utc = aware.astimezone(UTC)
+    utc = (local - offset).replace(tzinfo=UTC)
     return UtcConversion(
         local=local,
         utc=utc,
         timezone=name,
-        utc_offset=aware.utcoffset(),
+        utc_offset=offset,
         tz_abbreviation=abbr,
         julian_day_ut=julian_day_ut(utc),
         flags=tuple(flags),

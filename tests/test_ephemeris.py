@@ -53,11 +53,10 @@ def test_missing_file_raises_instead_of_approximating(tmp_path, body, file):
     assert exc.value.body == body
 
 
-def test_hygiea_without_file_raises():
-    if (ephe_path() / "ast0/se00010s.se1").is_file():
-        pytest.skip("Hygiea file is bundled")
+def test_hygiea_after_its_file_coverage_raises():
+    # ast0/se00010s.se1 ends in 2102, earlier than the planet files.
     with pytest.raises(EphemerisFileMissing, match="se00010s.se1"):
-        calc_body(J2000, "hygiea")
+        calc_body(swe.julday(2150, 1, 1, 12.0), "hygiea")
 
 
 @pytest.mark.parametrize("year", [1700, 2450])

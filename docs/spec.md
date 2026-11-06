@@ -9,6 +9,8 @@ BIRTH DATA
 - Date:
 - Time:
 - Place: (gamitin ang local timezone ng lugar at petsa para i-convert sa UT)
+  Bago nagkaroon ng standard time (LMT sa timezone database), gamitin ang
+  local mean time ng mismong birthplace: longitude / 15 na oras.
 - House system: Placidus o Whole Sign (pumili ng isa). Kapag hindi ma-compute
   ang Placidus (high latitude), i-flag at awtomatikong gamitin ang Whole Sign.
 - Current date (para sa timing):

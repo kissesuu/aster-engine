@@ -16,7 +16,8 @@ import swisseph as swe
 
 DEFAULT_EPHE_PATH = Path(__file__).resolve().parent.parent / "ephe"
 
-# The bundled files cover 1800-01-01 to 2399-12-31.
+# The bundled files cover 1800-01-01 to 2399-12-31, except Hygiea's
+# (ast0/se00010s.se1), which ends in 2102.
 COVERAGE = "1800-2399"
 
 # Without these no chart can be computed at all.
@@ -64,7 +65,7 @@ class EphemerisFileMissing(RuntimeError):
     def __init__(self, file: str, body: str | None = None, detail: str | None = None):
         self.file = file
         self.body = body
-        msg = f"Ephemeris file '{file}' is missing"
+        msg = f"Ephemeris file '{file}' is missing or does not cover this date"
         if body:
             msg += f" (needed for {body})"
         if detail:
