@@ -108,3 +108,10 @@ def local_to_utc(local: datetime, lat: float, lon: float, fold: int = 0) -> UtcC
         julian_day_ut=julian_day_ut(utc),
         flags=tuple(flags),
     )
+
+
+def jd_to_utc(jd_ut: float) -> datetime:
+    """UTC datetime (to the second) for a Julian day in UT, Gregorian calendar."""
+    y, m, d, h, mi, s = swe.jdut1_to_utc(jd_ut, swe.GREG_CAL)
+    whole = int(s)
+    return datetime(y, m, d, h, mi, whole, tzinfo=UTC) + timedelta(seconds=round(s - whole))
