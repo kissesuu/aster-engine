@@ -14,6 +14,7 @@ dependencies = [
     "fastapi>=0.115",
     "timezonefinder>=6.5",
     "tzdata>=2026.5",
+    "uvicorn>=0.30",
 ]
 
 [project.optional-dependencies]

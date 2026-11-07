@@ -63,3 +63,14 @@ def test_hygiea_after_its_file_coverage_raises():
 def test_dates_outside_bundled_coverage_raise(year):
     with pytest.raises(EphemerisFileMissing):
         calc_body(swe.julday(year, 6, 1, 12.0), "mars")
+
+
+def test_calc_body_works_on_a_new_thread():
+    # swe's ephemeris path is per thread; a thread that never set it must not
+    # end up without files (and so raise) after another thread set it.
+    from concurrent.futures import ThreadPoolExecutor
+
+    calc_body(J2000, "sun")
+    with ThreadPoolExecutor(max_workers=1) as pool:
+        lon = pool.submit(calc_body, J2000, "sun").result()[0]
+    assert lon == pytest.approx(calc_body(J2000, "sun")[0])

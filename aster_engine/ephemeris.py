@@ -9,6 +9,7 @@ raises an error that names the missing file instead.
 from __future__ import annotations
 
 import os
+import threading
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -93,16 +94,17 @@ def check_required(path: Path | None = None) -> None:
             raise EphemerisFileMissing(f, detail=f"not found in {path}")
 
 
-_active_path: str | None = None
+# swe keeps the path per thread (the C library uses thread-local storage), and
+# the API runs requests on a thread pool, so remember it per thread too.
+_active = threading.local()
 
 
 def _use_path(path: Path) -> None:
-    # swe keeps the path as process-wide state; only reset it when it changes.
-    global _active_path
+    """Point swe at `path` in this thread, resetting it only when it changes."""
     p = str(path)
-    if p != _active_path:
+    if getattr(_active, "path", None) != p:
         swe.set_ephe_path(p)
-        _active_path = p
+        _active.path = p
 
 
 def calc_body(jd_ut: float, body: str, path: Path | None = None) -> tuple[float, ...]:

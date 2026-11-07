@@ -18,8 +18,33 @@ pip install -e '.[dev]'
 
 ```sh
 pytest                                # tests
-uvicorn aster_engine.api:app --reload # API (needs `pip install uvicorn`)
+uvicorn aster_engine.api:app --reload # API on http://localhost:8000 (docs at /docs)
 ```
+
+## API
+
+`POST /natal` computes the whole chart: points, houses, sect, Lots, aspects,
+technical analysis, profections and transits, plus every flag and evidence
+ID in flat lists.
+
+```sh
+curl -s localhost:8000/natal -H 'Content-Type: application/json' -d '{
+  "date": "2000-03-15", "time": "14:30",
+  "lat": 14.5833, "lon": 121.0,
+  "house_system": "placidus",
+  "now": "2026-11-06T12:00:00Z"
+}'
+```
+
+- `date` and `time` are the local clock time at the birth place; the engine
+  finds the historical UTC offset from the coordinates.
+- `house_system` is `placidus` (default) or `whole_sign`.
+- `now` anchors transits and profections. Leave it out to use the time of the
+  request; send any other moment to look at another date.
+- `fold` (0 or 1) picks the occurrence of a local time that happened twice
+  (daylight saving ending).
+
+`GET /health` reports the ephemeris files and versions.
 
 ## Ephemeris
 
