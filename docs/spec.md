@@ -13,7 +13,8 @@ BIRTH DATA
   local mean time ng mismong birthplace: longitude / 15 na oras.
 - House system: Placidus o Whole Sign (pumili ng isa). Kapag hindi ma-compute
   ang Placidus (high latitude), i-flag at awtomatikong gamitin ang Porphyry.
-- Current date (para sa timing):
+- Current date and time (para sa timing): ang sandali ng request kung walang
+  ibinigay; pwedeng pumili ng ibang petsa at oras ang user.
 
 COMPUTATION (dapat accurate, huwag mag-estimate mula sa memory)
 1. Gamitin ang Swiss Ephemeris (pyswisseph). Kung mag-fail ang install, gumawa ng
@@ -111,6 +112,14 @@ COMPUTATION (dapat accurate, huwag mag-estimate mula sa memory)
       (4) Saturn, Uranus, Neptune, Pluto bago Jupiter, Node, Chiron.
    f. Limit: lahat ng kasalukuyang aktibo, hanggang 15 na pinakamahalagang past,
       at hanggang 20 na pinakamahalagang upcoming.
+   Paglilinaw:
+   - Window: pagsamahin ang magkasunod na pass ng parehong transit kapag wala
+     pang 1 taon ang pagitan (mula labas sa orb hanggang muling pasok).
+   - Aktibo: nasa pagitan ng unang pasok at huling labas ng window ang current
+     date and time, kahit nasa gap sa pagitan ng mga pass. Hiwalay na nakasaad
+     kung nasa orb mismo sa sandaling iyon.
+   - Kapag pareho ang priority: sa past, ang pinakabago muna; sa upcoming, ang
+     pinakamalapit muna. Pagkatapos pumili, ilabas ayon sa petsa.
    g. Annual profections: whole sign, edad 0 = 1st house. Ibigay ang activated
       sign at Lord of the Year para sa kasalukuyang taon at sa susunod na 2 taon.
       Nagsisimula ang bawat profection year sa birthday (local na petsa ng
