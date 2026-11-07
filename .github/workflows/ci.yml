@@ -16,3 +16,20 @@ jobs:
       - run: ruff check .
       - run: ruff format --check .
       - run: pytest -q
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t aster-engine .
+      - name: Run the image and call the API
+        run: |
+          docker run -d --name engine -p 8000:8000 -e ASTER_API_KEY=ci-key aster-engine
+          for i in $(seq 1 30); do curl -sf localhost:8000/health && break; sleep 1; done
+          test "$(curl -s -o /dev/null -w '%{http_code}' -X POST localhost:8000/natal \
+            -H 'Content-Type: application/json' \
+            -d '{"date":"2000-03-15","time":"14:30","lat":14.5833,"lon":121.0}')" = 401
+          curl -sf -X POST localhost:8000/natal -H 'Content-Type: application/json' \
+            -H 'X-API-Key: ci-key' \
+            -d '{"date":"2000-03-15","time":"14:30","lat":14.5833,"lon":121.0}' > chart.json
+          python3 -c "import json; d = json.load(open('chart.json')); assert d['sect']['kind'] == 'day'"
