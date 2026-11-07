@@ -1,9 +1,11 @@
 """HTTP API."""
 
 import datetime as dt
+import os
+import secrets
 from datetime import UTC, datetime
 
-from fastapi import FastAPI, HTTPException
+from fastapi import Depends, FastAPI, Header, HTTPException
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel, Field
 
@@ -14,6 +16,17 @@ from .houses import HouseSystem
 from .timeutil import TZDATA_VERSION, TimezoneNotFound
 
 app = FastAPI(title="aster-engine", version=__version__)
+
+
+def require_api_key(x_api_key: str | None = Header(None)) -> None:
+    """When ASTER_API_KEY is set, chart endpoints need it in the X-API-Key header.
+
+    Leave it unset for local development. /health stays open for platform
+    health checks.
+    """
+    expected = os.environ.get("ASTER_API_KEY")
+    if expected and not (x_api_key and secrets.compare_digest(x_api_key, expected)):
+        raise HTTPException(401, "missing or invalid X-API-Key")
 
 
 class NatalRequest(BaseModel):
@@ -39,7 +52,7 @@ def health() -> dict:
     }
 
 
-@app.post("/natal")
+@app.post("/natal", dependencies=[Depends(require_api_key)])
 def natal(req: NatalRequest) -> dict:
     if req.house_system is HouseSystem.PORPHYRY:
         raise HTTPException(422, "house_system must be placidus or whole_sign")

@@ -115,3 +115,17 @@ def test_bad_requests(body, message):
     r = client.post("/natal", json=body)
     assert r.status_code == 422
     assert message in str(r.json()["detail"])
+
+
+def test_api_key_required_when_configured(monkeypatch):
+    monkeypatch.setenv("ASTER_API_KEY", "s3cret")
+    body = {**MANILA_2000, "now": NOW}
+    assert client.post("/natal", json=body).status_code == 401
+    assert client.post("/natal", json=body, headers={"X-API-Key": "wrong"}).status_code == 401
+    assert client.post("/natal", json=body, headers={"X-API-Key": "s3cret"}).status_code == 200
+    assert client.get("/health").status_code == 200  # stays open
+
+
+def test_no_api_key_needed_when_not_configured(monkeypatch):
+    monkeypatch.delenv("ASTER_API_KEY", raising=False)
+    assert client.post("/natal", json={**MANILA_2000, "now": NOW}).status_code == 200

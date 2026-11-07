@@ -46,6 +46,24 @@ curl -s localhost:8000/natal -H 'Content-Type: application/json' -d '{
 
 `GET /health` reports the ephemeris files and versions.
 
+## Deploy
+
+The `Dockerfile` builds a self-contained image with the ephemeris files:
+
+```sh
+docker build -t aster-engine .
+docker run -p 8000:8000 -e ASTER_API_KEY=change-me aster-engine
+```
+
+- `PORT` (default 8000) is the port to listen on; platforms such as Cloud Run
+  and Fly.io set it.
+- `ASTER_API_KEY`: when set, `POST /natal` requires it in the `X-API-Key`
+  header. Leave it unset for local development. `/health` stays open for
+  health checks. Prefer running the engine on a private network as well, so
+  only the app's backend can reach it.
+- As AGPL-3.0 software served over a network, a deployment must offer its
+  users the source it runs. Deploy only code that is in this public repo.
+
 ## Ephemeris
 
 Ephemeris files are committed in [ephe/](ephe/). Set `ASTER_EPHE_PATH` to use
